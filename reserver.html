@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Réserver une place, RES'PARKING</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <h1 class="brand"><a href="index.html"><span class="logo">P</span>RES'PARKING</a></h1>
+  <nav><a href="reserver.html" aria-current="page">Réserver</a><a href="mes-reservations.html">Mes réservations</a></nav>
+</header>
+<p class="lead">Tournez autour du parking, survolez une place pour voir son prix, cliquez pour la réserver avec votre plaque.</p>
+<div class="bar">
+  <label>Date<input type="date" id="date"></label>
+  <label>Arrivée<select id="start"></select></label>
+  <label>Durée<div class="seg" data-k="dur">
+    <button data-v="1">1 h</button><button data-v="2">2 h</button><button data-v="4">4 h</button><button data-v="0">Journée</button></div></label>
+  <label>Type de place<div class="seg" data-k="filter">
+    <button data-v="all">Toutes</button><button data-v="ev">Électrique</button><button data-v="pmr">PMR</button></div></label>
+</div>
+<div class="layout">
+  <div>
+    <div class="stage" id="stage" aria-label="Parking en 3D, cliquez sur une place libre pour la choisir">
+      <div id="tip" class="tip" hidden></div><div id="tag" class="ptag" hidden></div>
+      <p class="hint">Glissez pour tourner, molette ou pincement pour zoomer</p>
+      <button class="reset" id="reset">Vue d’ensemble</button>
+    </div>
+    <div class="legend">
+      <span><i style="background:transparent"></i>Libre</span><span><i style="background:#8fa3bf"></i>Occupée</span>
+      <span><i style="background:var(--amber)"></i>Sélectionnée</span><span><i style="background:var(--mint)"></i>Borne électrique</span>
+      <span><i style="background:var(--pmr)"></i>PMR</span>
+    </div>
+  </div>
+  <aside class="panel" id="panel" aria-live="polite"></aside>
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/scene3d.js"></script>
+<script src="js/reserver.js"></script>
+</body>
+</html>

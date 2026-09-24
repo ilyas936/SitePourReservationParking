@@ -1,0 +1,66 @@
+/* css/style.css : styles communs à toutes les pages RES'PARKING */
+:root{--bg:#eef2f8;--surface:#fff;--ink:#0a1628;--muted:#5a6b82;--line:#d3dbe8;--brand:#2b6cff;--amber:#ffb020;--mint:#19d3a2;--pmr:#4d8bff;--err:#e5484d;
+--disp:'Big Shoulders Display','Arial Narrow',Impact,sans-serif;--body:'Figtree',system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#070d18;--surface:#111b2c;--ink:#eaf0fa;--muted:#8ea0ba;--line:#22314a}}
+:root[data-theme="dark"]{--bg:#070d18;--surface:#111b2c;--ink:#eaf0fa;--muted:#8ea0ba;--line:#22314a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 var(--body)}
+.wrap{max-width:1180px;margin:0 auto;padding:16px 16px 40px}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;margin-bottom:18px}
+.brand{margin:0;font:800 clamp(34px,6vw,54px)/1 var(--disp);letter-spacing:.04em}
+.brand a{color:var(--ink);text-decoration:none;display:flex;align-items:center}
+.logo{display:inline-grid;place-items:center;width:.85em;height:.85em;border-radius:.2em;background:var(--brand);color:#fff;margin-right:.3em;font-size:.85em}
+.top nav a{margin-left:20px;color:var(--muted);text-decoration:none;font-weight:700}
+.top nav a:hover,.top nav a[aria-current]{color:var(--ink)}
+.lead{margin:0 0 16px;color:var(--muted);max-width:60ch}
+.m{color:var(--muted);margin:0 0 10px}.k{font-size:14px;color:var(--muted);margin:0}
+h2{font:800 34px/1 var(--disp);margin:0 0 8px}
+input,select{font:inherit;padding:7px 10px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+select:disabled{opacity:.45}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--brand);outline-offset:2px}
+.bar{display:flex;flex-wrap:wrap;gap:10px 14px;align-items:flex-end;margin-bottom:14px}
+.bar label{font-size:13px;color:var(--muted);display:flex;flex-direction:column;gap:3px}
+.seg{display:flex;border:1.5px solid var(--line);border-radius:10px;overflow:hidden;background:var(--surface)}
+.seg button{font:inherit;font-size:14px;border:0;background:none;color:var(--ink);padding:8px 12px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--brand);color:#fff}
+.btn,.cta{display:inline-block;padding:13px 22px;border-radius:12px;background:var(--brand);color:#fff;font:700 16px var(--body);text-decoration:none;border:0;cursor:pointer;text-align:center}
+.btn:hover,.cta:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.cta{width:100%;font-size:17px;padding:14px;margin-top:14px}
+/* pages */
+.layout{display:grid;gap:18px;grid-template-columns:minmax(0,1fr)}
+@media(min-width:960px){.layout{grid-template-columns:minmax(0,1fr) 350px;align-items:start}.panel{position:sticky;top:16px}}
+.stage{position:relative;height:clamp(380px,70vh,620px);border-radius:18px;overflow:hidden;background:radial-gradient(120% 90% at 50% 20%,#1c2b45,#070d18)}
+.stage canvas{display:block;touch-action:none;cursor:grab}
+.tip{position:absolute;pointer-events:none;background:rgba(7,13,24,.95);color:#fff;font-size:13px;padding:6px 10px;border-radius:8px;white-space:nowrap;transform:translate(14px,14px);z-index:2}
+.ptag{position:absolute;pointer-events:none;transform:translate(-50%,-100%);background:var(--amber);color:#111;font:800 24px/1 var(--disp);padding:5px 14px;border-radius:99px;z-index:2}
+.hint{position:absolute;left:14px;bottom:10px;margin:0;font-size:12px;color:#8ea0ba;pointer-events:none;z-index:2}
+.reset{position:absolute;right:12px;bottom:10px;z-index:2;font:600 13px var(--body);padding:7px 12px;border-radius:10px;border:1.5px solid #ffffff44;background:#070d18bb;color:#fff;cursor:pointer}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin:12px 4px 0;font-size:13px;color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:4px;vertical-align:-2px;margin-right:6px;border:2px solid #8a95a0}
+.panel{background:var(--surface);border-radius:18px;padding:22px;min-height:320px}
+.big{font:800 84px/.9 var(--disp);margin:14px 0 2px}
+.num{font:800 104px/.85 var(--disp);margin:2px 0 10px}.num.sm{font-size:52px;margin:0;min-width:80px}
+.badge{display:inline-block;font-size:13px;font-weight:700;padding:3px 10px;border-radius:99px;background:var(--line)}
+.badge.ev{background:var(--mint);color:#04352a}.badge.pmr{background:var(--pmr);color:#fff}
+.price{font:800 52px/1 var(--disp);margin:16px 0 2px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:16px 0;font-size:15px}
+dt{color:var(--muted)}dd{margin:0}
+.ticket{border:2px dashed var(--line);border-radius:14px;padding:18px;margin-bottom:14px}
+.code{font:800 40px/1 var(--disp);letter-spacing:.06em;margin:6px 0}
+/* plaque d'immatriculation */
+.plate{display:flex;max-width:290px;border:3px solid #1a2233;border-radius:10px;overflow:hidden;background:#fff;margin:6px 0}
+.plate .eu{background:#0b3ea8;color:#fff;font:700 13px var(--body);padding:0 8px 5px;display:flex;align-items:flex-end}
+.plate input,.plate .txt{flex:1;min-width:0;border:0;border-radius:0;background:#fff;color:#111;font:800 30px/1 var(--disp);letter-spacing:.12em;text-align:center;padding:8px 6px;text-transform:uppercase}
+.plate input:focus{outline:none}.plate:focus-within{box-shadow:0 0 0 3px var(--brand)}
+.plate.bad{border-color:var(--err)}
+.err{color:var(--err);font-size:14px;margin:4px 0 0}
+/* accueil et liste */
+.hero{padding:34px 0 8px}.hero h2{font-size:clamp(44px,8vw,92px);line-height:.95;max-width:14ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.cards{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));margin-top:38px}
+.card{background:var(--surface);border-radius:16px;padding:20px}.card h3{font:800 26px/1 var(--disp);margin:0 0 6px}.card p{margin:0;color:var(--muted)}
+.res{background:var(--surface);border-radius:14px;padding:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.res div:nth-child(2){flex:1;min-width:180px}.res p{margin:0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
